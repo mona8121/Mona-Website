@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mona Sara Lassoued – Bewerbung Lehrstelle</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f9f8f7;
+      --surface: #ffffff;
+      --text: #18181b;
+      --muted: #71717a;
+      --accent: #b05070;
+      --accent-light: #f9eef1;
+      --accent-mid: #d4899a;
+      --border: #e8e4e6;
+      --serif: 'Playfair Display', serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.7; }
+
+    /* AI BANNER */
+    .ai-banner {
+      background: #18181b;
+      color: #e4e4e7;
+      text-align: center;
+      padding: 10px 2rem;
+      font-size: 13px;
+      line-height: 1.5;
+      letter-spacing: 0.01em;
+    }
+    .ai-banner strong { color: #ffffff; font-weight: 500; }
+    .ai-banner .ai-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 100px;
+      padding: 2px 10px; font-size: 12px;
+      margin-left: 6px; vertical-align: middle;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(249,248,247,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2.5rem; height: 58px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-family: var(--serif); font-size: 17px; color: var(--accent); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 13.5px; color: var(--muted); text-decoration: none;
+      transition: color 0.2s; padding: 4px 0;
+      border-bottom: 2px solid transparent;
+    }
+    .nav-links a:hover { color: var(--text); border-bottom-color: var(--accent); }
+    .nav-links a.active { color: var(--text); border-bottom-color: var(--accent); }
+
+    /* LAYOUT */
+    main { max-width: 820px; margin: 0 auto; padding: 0 2.5rem; }
+    section { padding: 5rem 0; border-bottom: 1px solid var(--border); }
+    section:last-child { border-bottom: none; }
+
+    .section-label {
+      font-size: 11px; color: var(--accent); letter-spacing: 0.14em;
+      text-transform: uppercase; margin-bottom: 2rem;
+      display: flex; align-items: center; gap: 12px; font-weight: 500;
+    }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    /* HERO */
+    #hero { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr 210px;
+      gap: 3.5rem; align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent-light); border: 1px solid #e8c8d0;
+      border-radius: 100px; padding: 5px 14px;
+      font-size: 13px; color: var(--accent); margin-bottom: 1.4rem;
+    }
+    .hero-badge::before { content: ''; width: 7px; height: 7px; background: var(--accent); border-radius: 50%; }
+
+    h1 {
+      font-family: var(--serif); font-size: clamp(1.9rem, 4.5vw, 2.8rem);
+      font-weight: 500; line-height: 1.2; margin-bottom: 0.9rem;
+    }
+    .hero-role { font-size: 15px; color: var(--muted); margin-bottom: 1.25rem; line-height: 1.75; }
+
+    .lehrberufe { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 0.5rem; }
+    .lehrberuf-tag {
+      font-size: 13px; padding: 5px 13px;
+      border-radius: 100px; border: 1px solid var(--border);
+      background: var(--surface); color: var(--text); font-weight: 400;
+    }
+    .lehrberufe-note {
+      font-size: 12px; color: var(--muted); margin-bottom: 1.4rem; margin-top: 6px;
+    }
+
+    .hero-why {
+      background: var(--surface); border: 1px solid var(--border);
+      border-left: 3px solid var(--accent-mid);
+      border-radius: 0 10px 10px 0; padding: 1.1rem 1.4rem;
+      margin-bottom: 2rem; font-size: 14.5px; line-height: 1.8;
+    }
+    .hero-why strong {
+      display: block; font-size: 11px; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--accent); margin-bottom: 6px; font-weight: 500;
+    }
+
+    .btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 10px 22px; font-size: 14px; font-family: var(--sans); font-weight: 500;
+      border-radius: 100px; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none;
+    }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-primary:hover { opacity: 0.87; }
+    .btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    .btn-secondary:hover { border-color: var(--accent-mid); }
+
+    .hero-photo {
+      width: 100%; max-width: 210px; aspect-ratio: 3/4;
+      object-fit: cover; object-position: top center;
+      border-radius: 16px; border: 3px solid var(--surface);
+      box-shadow: 0 0 0 1px var(--border);
+      display: block;
+    }
+
+    /* INFO CARDS */
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(175px, 1fr)); gap: 0.75rem; }
+    .info-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 0.9rem 1.1rem; }
+    .info-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.09em; color: var(--muted); margin-bottom: 3px; }
+    .info-value { font-size: 14px; font-weight: 500; }
+
+    /* NOTEN */
+    .noten-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.75rem; }
+    .note-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1rem 1.1rem;
+    }
+    .note-fach { font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+    .note-wert {
+      font-family: var(--serif); font-size: 2rem; font-weight: 500; line-height: 1;
+      color: var(--accent);
+    }
+    .note-wert.normal { color: var(--text); }
+    .note-sem { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+    /* SPRACHEN */
+    .lang-table { width: 100%; border-collapse: collapse; }
+    .lang-table tr { border-bottom: 1px solid var(--border); }
+    .lang-table tr:last-child { border-bottom: none; }
+    .lang-table td { padding: 12px 0; vertical-align: middle; }
+    .lang-col-name { width: 110px; font-size: 14px; font-weight: 500; }
+    .lang-col-text { width: 220px; font-size: 13px; color: var(--muted); }
+    .lang-col-bar { padding-left: 16px; }
+    .lang-bar-bg {
+      width: 100%; height: 6px; background: var(--accent-light);
+      border-radius: 100px; overflow: hidden;
+    }
+    .lang-bar { height: 100%; background: var(--accent); border-radius: 100px; transition: width 1s ease; }
+
+    /* TIMELINE */
+    .timeline { display: flex; flex-direction: column; gap: 1.75rem; }
+    .entry { display: grid; grid-template-columns: 135px 1fr; gap: 1.5rem; }
+    .entry-date { font-size: 12px; color: var(--muted); padding-top: 3px; }
+    .entry-title { font-size: 15px; font-weight: 500; margin-bottom: 2px; }
+    .entry-company { font-size: 13px; color: var(--accent); margin-bottom: 5px; }
+    .entry-desc { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+    /* SCHNUPPER */
+    .schnupper-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.4rem 1.6rem;
+      display: flex; align-items: flex-start; gap: 1.1rem;
+    }
+    .schnupper-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: var(--accent-light); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center; font-size: 20px;
+    }
+    .schnupper-title { font-weight: 500; font-size: 15px; margin-bottom: 2px; }
+    .schnupper-sub { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+    .schnupper-text { font-size: 14px; line-height: 1.75; }
+
+    /* FUSSBALL */
+    .sport-grid { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.25rem; }
+    .sport-entry {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1rem 1.3rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .sport-badge {
+      width: 38px; height: 38px; flex-shrink: 0;
+      background: var(--accent-light); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; font-size: 18px;
+    }
+    .sport-info { flex: 1; }
+    .sport-title { font-weight: 500; font-size: 14px; }
+    .sport-sub { font-size: 13px; color: var(--muted); }
+    .sport-years {
+      font-size: 12px; color: var(--accent); background: var(--accent-light);
+      padding: 4px 11px; border-radius: 100px; white-space: nowrap; font-weight: 500;
+    }
+
+    /* HOBBYS */
+    .hobby-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 0.75rem; }
+    .hobby-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 0.9rem 1.1rem; }
+    .hobby-title { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+    .hobby-desc { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+    /* KONTAKT */
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.75rem; }
+    .contact-item {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1rem 1.25rem;
+      text-decoration: none; color: var(--text); transition: border-color 0.2s;
+    }
+    .contact-item:hover { border-color: var(--accent-mid); }
+    .contact-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.09em; color: var(--muted); margin-bottom: 4px; }
+    .contact-value { font-size: 14px; color: var(--accent); word-break: break-word; }
+
+    footer {
+      text-align: center; padding: 3rem 2rem;
+      font-size: 13px; color: var(--muted); line-height: 1.8;
+    }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+    .fade { animation: fadeUp 0.6s ease both; }
+    .fade-1 { animation-delay: 0.05s; }
+    .fade-2 { animation-delay: 0.15s; }
+    .fade-3 { animation-delay: 0.25s; }
+    .fade-4 { animation-delay: 0.35s; }
+
+    @media (max-width: 640px) {
+      .ai-banner { font-size: 12px; }
+      nav { padding: 0 1.25rem; }
+      .nav-links { gap: 1.1rem; }
+      main { padding: 0 1.25rem; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-photo { width: 140px; aspect-ratio: 3/4; margin-bottom: 1.5rem; }
+      .entry { grid-template-columns: 1fr; gap: 0.2rem; }
+      .entry-date { color: var(--accent); }
+      .lang-col-text { display: none; }
+      .lang-col-name { width: 90px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- AI BANNER -->
+<div class="ai-banner">
+  <strong>Diese Website habe ich mit KI-Unterstützung (Claude von Anthropic) selbst vibe-gecoded</strong> –
+  ohne Vorkenntnisse in Webentwicklung.
+  <span class="ai-pill">✦ Vibe Coded mit Claude</span>
+</div>
+
+<nav id="navbar">
+  <a class="nav-logo" href="#hero">Mona Sara Lassoued</a>
+  <ul class="nav-links">
+    <li><a href="#ueber" id="nav-ueber">Über mich</a></li>
+    <li><a href="#schule" id="nav-schule">Schule</a></li>
+    <li><a href="#sport" id="nav-sport">Sport</a></li>
+    <li><a href="#kontakt" id="nav-kontakt">Kontakt</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="hero-badge fade fade-1">Auf Lehrstellensuche – Lehrbeginn August 2027</p>
+        <h1 class="fade fade-2">Hallo, ich bin<br>Mona Sara Lassoued.</h1>
+        <p class="hero-role fade fade-2">Ich bin 14 Jahre alt, besuche die Sek Im Birch (Niveau 1) in Zürich und bewerbe mich für eine Lehrstelle in einem dieser Berufe:</p>
+        <div class="lehrberufe fade fade-3">
+          <span class="lehrberuf-tag">Informatikerin EFZ</span>
+          <span class="lehrberuf-tag">Applikationsentwicklung EFZ</span>
+          <span class="lehrberuf-tag">Entwicklung digitales Business</span>
+          <span class="lehrberuf-tag">KV Branche Bank</span>
+        </div>
+        <p class="lehrberufe-note fade fade-3">Informatikerin & Applikationsentwicklung EFZ sind verwandte Berufe im gleichen Fachbereich.</p>
+        <div class="hero-why fade fade-3">
+          <strong>Meine Motivation & mein Weg</strong>
+          Ich interessiere mich schon lange für Technologie und digitale Themen. Was ich nicht erwartet hatte: dass ich eines Tages selbst eine eigene Website erstellen würde – ganz ohne Vorkenntnisse, nur mit KI als Werkzeug. Genau das hat mich für Vibe Coding begeistert. Diese Seite ist mein persönlicher Beweis dafür, dass ich bereit bin, Neues anzupacken und mir selbstständig Wissen anzueignen. Bei meiner Schnupperlehre bei der ZKB habe ich dann gemerkt, wie spannend digitales Arbeiten im Berufsalltag wirklich ist – das hat meinen Wunsch nach einer Lehrstelle in diesem Bereich noch weiter bestärkt.
+        </div>
+        <div class="btn-row fade fade-4">
+          <a href="#kontakt" class="btn btn-primary">Kontakt aufnehmen</a>
+          <a href="#schule" class="btn btn-secondary">Mehr über mich</a>
+        </div>
+      </div>
+      <div class="fade fade-2">
+        <img src="mona.png" alt="Mona Sara Lassoued" class="hero-photo" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ÜBER MICH -->
+  <section id="ueber">
+    <p class="section-label">Personalien</p>
+    <div class="info-grid" style="margin-bottom:3rem">
+      <div class="info-card">
+        <p class="info-label">Name</p>
+        <p class="info-value">Mona Sara Lassoued</p>
+      </div>
+      <div class="info-card">
+        <p class="info-label">Geburtsdatum</p>
+        <p class="info-value">8. Januar 2012</p>
+      </div>
+      <div class="info-card">
+        <p class="info-label">Wohnort</p>
+        <p class="info-value">Zürich, Schweiz</p>
+      </div>
+      <div class="info-card">
+        <p class="info-label">Nationalität</p>
+        <p class="info-value">Schweiz 🇨🇭</p>
+      </div>
+    </div>
+
+    <p class="section-label">Schulnoten – Sek 2, 1. Semester</p>
+    <div class="noten-grid" style="margin-bottom:3rem">
+      <div class="note-card">
+        <p class="note-fach">Französisch</p>
+        <p class="note-wert">6.0</p>
+        <p class="note-sem">Sek 2, Sem. 1</p>
+      </div>
+      <div class="note-card">
+        <p class="note-fach">Englisch</p>
+        <p class="note-wert">6.0</p>
+        <p class="note-sem">Sek 2, Sem. 1</p>
+      </div>
+      <div class="note-card">
+        <p class="note-fach">Algebra</p>
+        <p class="note-wert">5.5</p>
+        <p class="note-sem">Sek 2, Sem. 1</p>
+      </div>
+      <div class="note-card">
+        <p class="note-fach">Geometrie</p>
+        <p class="note-wert">5.5</p>
+        <p class="note-sem">Sek 2, Sem. 1</p>
+      </div>
+      <div class="note-card">
+        <p class="note-fach">Deutsch</p>
+        <p class="note-wert normal">5.0</p>
+        <p class="note-sem">Sek 2, Sem. 1</p>
+      </div>
+    </div>
+
+    <p class="section-label">Sprachkenntnisse</p>
+    <table class="lang-table">
+      <tbody>
+        <tr>
+          <td class="lang-col-name">Deutsch</td>
+          <td class="lang-col-text">Muttersprache</td>
+          <td class="lang-col-bar"><div class="lang-bar-bg"><div class="lang-bar" style="width:100%"></div></div></td>
+        </tr>
+        <tr>
+          <td class="lang-col-name">Englisch</td>
+          <td class="lang-col-text">Sehr gut (Note 6.0, seit 3. Klasse)</td>
+          <td class="lang-col-bar"><div class="lang-bar-bg"><div class="lang-bar" style="width:84%"></div></div></td>
+        </tr>
+        <tr>
+          <td class="lang-col-name">Französisch</td>
+          <td class="lang-col-text">Sehr gut (Note 6.0, seit 5. Klasse)</td>
+          <td class="lang-col-bar"><div class="lang-bar-bg"><div class="lang-bar" style="width:80%"></div></div></td>
+        </tr>
+        <tr>
+          <td class="lang-col-name">Arabisch</td>
+          <td class="lang-col-text">Anfangskenntnisse</td>
+          <td class="lang-col-bar"><div class="lang-bar-bg"><div class="lang-bar" style="width:18%"></div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- SCHULE & SCHNUPPER -->
+  <section id="schule">
+    <p class="section-label">Schulweg</p>
+    <div class="timeline">
+      <div class="entry">
+        <span class="entry-date">2024 – heute</span>
+        <div>
+          <p class="entry-title">Sekundarschule, Niveau 1</p>
+          <p class="entry-company">Schule Im Birch, Zürich</p>
+          <p class="entry-desc">Niveau 1 – das höchste Niveau der Sekundarschule in Zürich. Starke Ergebnisse in Sprachen und Mathematik.</p>
+        </div>
+      </div>
+      <div class="entry">
+        <span class="entry-date">2018 – 2024</span>
+        <div>
+          <p class="entry-title">Primarschule</p>
+          <p class="entry-company">Schule Hürstholz, Zürich</p>
+        </div>
+      </div>
+      <div class="entry">
+        <span class="entry-date">2016</span>
+        <div>
+          <p class="entry-title">Kindergarten</p>
+          <p class="entry-company">Kindergarten Arnikahof</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="section-label" style="margin-top:3.5rem">Schnupperlehre</p>
+    <div class="schnupper-card">
+      <div class="schnupper-icon">🏦</div>
+      <div>
+        <p class="schnupper-title">Entwicklung digitales Business</p>
+        <p class="schnupper-sub">Zürcher Kantonalbank (ZKB) — 25. März 2026</p>
+        <p class="schnupper-text">
+          Bei der ZKB durfte ich hautnah erleben, wie digitale Lösungen im Bankenumfeld entwickelt und eingesetzt werden. Die Erfahrung hat mein Interesse an diesem Beruf noch weiter bestärkt und mir gezeigt, dass digitales Arbeiten genau meiner Stärke entspricht.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPORT & HOBBYS -->
+  <section id="sport">
+    <p class="section-label">Fussball-Laufbahn</p>
+    <div class="sport-grid">
+      <div class="sport-entry">
+        <div class="sport-badge">⚽</div>
+        <div class="sport-info">
+          <p class="sport-title">FC Affoltern – Erste Schritte</p>
+          <p class="sport-sub">Erste Erfahrungen im Vereinsfussball, Stürmer & Mittelfeld</p>
+        </div>
+        <span class="sport-years">2016 – 2017</span>
+      </div>
+      <div class="sport-entry">
+        <div class="sport-badge">⚽</div>
+        <div class="sport-info">
+          <p class="sport-title">FC Affoltern – Rückkehr</p>
+          <p class="sport-sub">Wiedereinsteig, Entwicklung zur Stammspielerin</p>
+        </div>
+        <span class="sport-years">2021 – 2025</span>
+      </div>
+      <div class="sport-entry">
+        <div class="sport-badge">⚽</div>
+        <div class="sport-info">
+          <p class="sport-title">Team Furttal C1</p>
+          <p class="sport-sub">Aktueller Verein – Ligaspiele & Training</p>
+        </div>
+        <span class="sport-years">2025 – heute</span>
+      </div>
+    </div>
+    <p style="font-size:14px;color:var(--muted);margin-top:1.25rem;line-height:1.8">
+      Fussball begleitet mich seit fast 10 Jahren. Ich spiele hauptsächlich im Mittelfeld und im Sturm – Positionen, die Übersicht, Entscheidungsschnelligkeit und Teamgeist verlangen. Diese Eigenschaften bringe ich auch ins Berufsleben mit: Verantwortung übernehmen, unter Druck ruhig bleiben und gemeinsam auf ein Ziel hinarbeiten.
+    </p>
+
+    <p class="section-label" style="margin-top:3.5rem">Interessen & Stärken</p>
+    <div class="hobby-grid">
+      <div class="hobby-card">
+        <p class="hobby-title">🎾 Tennis</p>
+        <p class="hobby-desc">Ich bin sehr gut im Tennis. Wenn ich die Möglichkeit habe zu spielen, macht es mir grossen Spass – ich schätze die Kombination aus Technik und mentalem Fokus.</p>
+      </div>
+      <div class="hobby-card">
+        <p class="hobby-title">🤖 Künstliche Intelligenz</p>
+        <p class="hobby-desc">Ich interessiere mich für KI-Themen: wie Modelle funktionieren, was sie können – und wo ihre Grenzen sind.</p>
+      </div>
+      <div class="hobby-card">
+        <p class="hobby-title">💻 Vibe Coding</p>
+        <p class="hobby-desc">Ich erstelle eigene Projekte mit KI-Unterstützung und entdecke so spielerisch, wie Webentwicklung funktioniert. Diese Website ist ein Beispiel davon.</p>
+      </div>
+      <div class="hobby-card">
+        <p class="hobby-title">🌐 Webentwicklung</p>
+        <p class="hobby-desc">Das Erstellen von Websites fasziniert mich. Ich lerne, wie Design und Code zusammenspielen und möchte dieses Wissen in meiner Lehre vertiefen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section id="kontakt">
+    <p class="section-label">Kontakt</p>
+    <div class="contact-grid">
+      <a class="contact-item" href="mailto:mona.lassoued8@gmail.com">
+        <p class="contact-label">E-Mail</p>
+        <p class="contact-value">mona.lassoued8@gmail.com</p>
+      </a>
+      <a class="contact-item" href="tel:+41764418387">
+        <p class="contact-label">Telefon</p>
+        <p class="contact-value">+41 76 441 83 87</p>
+      </a>
+      <div class="contact-item">
+        <p class="contact-label">Standort</p>
+        <p class="contact-value">Zürich, Schweiz</p>
+      </div>
+      <div class="contact-item">
+        <p class="contact-label">Lehrbeginn</p>
+        <p class="contact-value">August 2027</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Mona Sara Lassoued<br>
+  <span style="font-size:12px">Vibe gecoded mit <strong style="color:var(--text)">Claude (Anthropic)</strong> – ohne Vorkenntnisse in Webentwicklung. Gehostet auf GitHub Pages.</span>
+</footer>
+
+<script>
+  // Active nav highlight on scroll
+  const sections = ['ueber','schule','sport','kontakt'];
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        sections.forEach(id => {
+          const el = document.getElementById('nav-' + id);
+          if (el) el.classList.remove('active');
+        });
+        const navEl = document.getElementById('nav-' + entry.target.id);
+        if (navEl) navEl.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
